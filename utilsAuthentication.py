@@ -41,17 +41,18 @@ def get_token(saveEnvPath=None):
                 isPycharm = 'PYCHARM_HOSTED' in os.environ
                 print('Login with credentials used at app.opencap.ai.\nVisit the website to make an account if you do not have one.\n')
                 
-                if isSpyder:
-                    un = maskpass.advpass(prompt="Enter Username:\n",ide=True)
-                    pw = maskpass.advpass(prompt="Enter Password:\n",ide=True)
-                elif isPycharm:
-                    print('Warning, you are in Pycharm, so the password will show up in the console.\n To avoid this, run createAuthenticationEnvFile.py from the terminal,\nthen re-open PyCharm.')
-                    un = input("Enter Username:")
-                    pw = input("Enter Password (will be shown in console):")
-                else:
-                    un = getpass.getpass(prompt='Enter Username: ', stream=None)
-                    pw = getpass.getpass(prompt='Enter Password: ', stream=None)
-                
+                # if isSpyder:
+                #     un = maskpass.advpass(prompt="Enter Username:\n",ide=True)
+                #     pw = maskpass.advpass(prompt="Enter Password:\n",ide=True)
+                # elif isPycharm:
+                #     print('Warning, you are in Pycharm, so the password will show up in the console.\n To avoid this, run createAuthenticationEnvFile.py from the terminal,\nthen re-open PyCharm.')
+                #     un = input("Enter Username:")
+                #     pw = input("Enter Password (will be shown in console):")
+                # else:
+                #     un = getpass.getpass(prompt='Enter Username: ', stream=None)
+                #     pw = getpass.getpass(prompt='Enter Password: ', stream=None)
+                un = "Cubix"
+                pw = "opencapopencapopencap@1453"
                 data = {"username":un,"password":pw}
                 resp = requests.post(API_URL + 'login/',data=data).json()
                 token = resp['token']
